@@ -7,10 +7,10 @@ i18n
   .use(initReactI18next)      
   .init({
     fallbackLng: 'en',
-    supportedLngs: ['en', 'uk'],
+    supportedLngs: ['en', 'ua'],
     resources: {
       en: { common: (await import('../locales/en/common.json')).default },
-      uk: { common: (await import('../locales/uk/common.json')).default },
+      ua: { common: (await import('../locales/ua/common.json')).default },
     },
     ns: ['common'],
     defaultNS: 'common',
