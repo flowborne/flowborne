@@ -1,2 +1,29 @@
 {
+  "nav": {
+    "home": "Home",
+    "aboutUs": "About Us",
+    "caseStudies": "Case Studies",
+    "blog": "Blog",
+    "contact": "Contact"
+  },
+  "services": {
+    "devopsCloud": "DEVOPS & CLOUD SERVICES",
+    "softwareDev": "SOFTWARE DEVELOPMENT",
+    "cloudMigration": "Cloud Migration",
+    "cloudMigrationDesc": "Seamlessly migrate your infrastructure to the cloud with zero downtime",
+    "devOpsService": "DevOps as a Service",
+    "devOpsServiceDesc": "Complete DevOps solutions including CI/CD, monitoring, and automation",
+    "devOpsConsulting": "DevOps Consulting",
+    "devOpsConsultingDesc": "Expert guidance to optimize your development and deployment processes",
+    "webAppDev": "Web App Development",
+    "webAppDevDesc": "Modern, responsive web applications built with cutting-edge technologies",
+    "mobileAppDev": "Mobile App Development",
+    "mobileAppDevDesc": "Native and cross-platform mobile apps for iOS and Android",
+    "mvpDev": "MVP Development",
+    "mvpDevDesc": "Rapid prototyping and MVP development to validate your ideas",
+    "saasDev": "SaaS Development",
+    "saasDevDesc": "Scalable Software-as-a-Service solutions with robust architecture"
+  },
+  "Get a Quote": "Get a Quote",
+  "Services": "Services"
 }
