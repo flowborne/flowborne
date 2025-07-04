@@ -6,7 +6,7 @@ export const styles: { [key: string]: SxProps } = {
     boxShadow: 'none',
   },
   container: {
-    maxWidth: 1200,
+    maxWidth: 1500,
     px: { xs: 2, sm: 3, md: 4 },
   },
   toolbar: {
@@ -31,13 +31,17 @@ export const styles: { [key: string]: SxProps } = {
   navLinksBox: {
     display: 'flex',
     alignItems: 'center',
-    gap: 4,
+    gap: { xs: 2, sm: 4, md: 6 },
     flexGrow: 1,
     justifyContent: 'center',
   },
   navLink: {
     cursor: 'pointer',
-    '&:hover': { color: '#FADF11' },
+    position: 'relative',
+    fontWeight: 800,
+    '&:hover': { 
+      color: '#FADF11',
+    },
   },
   servicesSlider: {
     position: 'absolute',
@@ -63,8 +67,11 @@ export const styles: { [key: string]: SxProps } = {
     p: 1,
     cursor: 'pointer',
     border: '1px solid transparent',
+    transition: 'all 0.2s ease-in-out',
     '&:hover': {
       border: '1px solid #FADF11',
+      backgroundColor: 'rgba(250, 223, 17, 0.06)',
+      transform: 'translateX(8px)',
     },
   },
 };

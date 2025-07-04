@@ -136,6 +136,7 @@ export const Navbar: FC = () => {
                     <ListItem sx={{ mt: 2 }}>
                       <Button
                         variant="contained"
+                        color="secondary"
                         fullWidth
                         sx={styles.quoteButton}
                         onClick={() => handleNavigate('/contact')}
@@ -150,6 +151,7 @@ export const Navbar: FC = () => {
               <Box sx={styles.navLinksBox}>
                 <Typography
                   onClick={() => handleNavigate('/')}
+                  data-text={t('nav.home')}
                   sx={{
                     ...styles.navLink,
                     color: isActive('/') ? '#FADF11' : '#F8F3F3',
@@ -160,6 +162,7 @@ export const Navbar: FC = () => {
 
                 <Typography
                   onClick={() => setServicesDesktopOpen(!servicesDesktopOpen)}
+                  data-text={t('Services')}
                   sx={{
                     ...styles.navLink,
                     color: servicesDesktopOpen || isServiceActive() ? '#FADF11' : '#F8F3F3',
@@ -172,6 +175,7 @@ export const Navbar: FC = () => {
                   <Typography
                     key={item.label}
                     onClick={() => handleNavigate(item.path)}
+                    data-text={t(item.label)}
                     sx={{
                       ...styles.navLink,
                       color: isActive(item.path) ? '#FADF11' : '#F8F3F3',
@@ -186,6 +190,7 @@ export const Navbar: FC = () => {
             {!isMobile && (
               <Button
                 variant="contained"
+                color="secondary"
                 sx={styles.quoteButton}
                 onClick={() => handleNavigate('/contact')}
               >

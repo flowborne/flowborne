@@ -10,6 +10,10 @@ export const styles: { [key: string]: SxProps<Theme> } = {
   main: {
   },
   container: {
-    width: '100%'
+    width: '100%',
+    paddingLeft: '0 !important',
+    paddingRight: '0 !important',
+    marginLeft: '0 !important',
+    marginRight: '0 !important',
   },
 }
