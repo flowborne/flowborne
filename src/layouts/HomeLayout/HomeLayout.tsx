@@ -1,4 +1,4 @@
-import React from 'react';
+import { useEffect, useState } from 'react';
 import {
   Box,
   Button,
@@ -38,8 +38,16 @@ const iconMap = {
 const HomeLayout = () => {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
+  const [scrollY, setScrollY] = useState(0);
   const navigate = useNavigate();
   const { t } = useTranslation();
+
+  useEffect(() => {
+    const handleScroll = () => setScrollY(window.scrollY);
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
 
   const renderIcon = (iconName: string) => {
     const IconComponent = iconMap[iconName as keyof typeof iconMap];
@@ -63,7 +71,10 @@ const HomeLayout = () => {
   };
 
   return (
-    <Box sx={styles.layoutWrapper}>
+    <Box sx={{
+      ...styles.layoutWrapper,
+      backgroundPositionY: `${scrollY * 0.5}px`,
+    }}>
       
       {/* Hero Section */}
       <Box sx={styles.heroWrapper}>
@@ -140,7 +151,7 @@ const HomeLayout = () => {
             {t('solutions.subtitle')}
           </Typography>
 
-          <Grid container spacing={4} justifyContent="center">
+          <Grid container spacing={0} justifyContent="center">
             {/* DevOps & Cloud Services */}
             <Grid item xs={12} md={6} sx={styles.solutionGridItem}>
               <Box sx={styles.solutionCard}>

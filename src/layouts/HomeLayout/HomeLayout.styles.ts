@@ -6,7 +6,8 @@ export const styles: { [key: string]: SxProps } = {
     minHeight: '100vh',
     backgroundImage: `url(${backgroundImage})`,
     backgroundSize: 'cover',
-    backgroundPosition: 'center',
+    backgroundPositionX: 'center', 
+    backgroundPositionY: '0px',
     backgroundRepeat: 'no-repeat',
     display: 'flex',
     flexDirection: 'column',
@@ -110,7 +111,7 @@ export const styles: { [key: string]: SxProps } = {
     boxShadow: '0 0 20px rgba(0,0,0,0.05)',
     display: 'flex',
     flexDirection: 'column',
-    gap: 2,
+    gap: 1,
   },
 
   solutionIconBox: {
