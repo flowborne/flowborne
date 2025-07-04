@@ -2,8 +2,10 @@ import { SxProps } from '@mui/system';
 
 export const styles: { [key: string]: SxProps } = {
   appBar: {
-    backgroundColor: '#0E0E0E',
+    backgroundColor: 'rgba(0, 0, 0, 0.1)',
     boxShadow: 'none',
+    backdropFilter: 'blur(10px)',
+    transition: 'background-color 0.3s ease, backdrop-filter 0.3s ease',
   },
   container: {
     maxWidth: 1500,
@@ -44,7 +46,7 @@ export const styles: { [key: string]: SxProps } = {
     },
   },
   servicesSlider: {
-    position: 'absolute',
+    position: 'fixed',
     top: '64px',
     left: 0,
     width: '100%',

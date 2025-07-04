@@ -105,6 +105,7 @@ export const styles: { [key: string]: SxProps } = {
     bgcolor: 'background.white',
     borderRadius: 6,
     p: { xs: 3, md: 4 },
+    mb: { xs: 6, ms: 8 },
     width: '100%',
     maxWidth: 420,
     textAlign: 'left',

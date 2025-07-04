@@ -1,4 +1,4 @@
-import { FC, useState } from 'react';
+import { FC, useState, useEffect, useRef } from 'react';
 import {
   AppBar,
   Toolbar,
@@ -30,6 +30,9 @@ export const Navbar: FC = () => {
   const [drawerOpen, setDrawerOpen] = useState(false);
   const [servicesMobileOpen, setServicesMobileOpen] = useState(false);
   const [servicesDesktopOpen, setServicesDesktopOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+  const sliderRef = useRef(null);
+  const servicesButtonRef = useRef(null);
   const navigate = useNavigate();
   const location = useLocation();
   const { t } = useTranslation();
@@ -49,9 +52,38 @@ export const Navbar: FC = () => {
     setServicesDesktopOpen(false);
   };
 
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 20);
+    window.addEventListener('scroll', onScroll);
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
+
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (
+        servicesDesktopOpen &&
+        sliderRef.current &&
+        !sliderRef.current.contains(event.target as Node) &&
+        !servicesButtonRef.current?.contains(event.target as Node)
+      ) {
+        setServicesDesktopOpen(false);
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [servicesDesktopOpen]);
+
   return (
     <>
-      <AppBar position="static" sx={styles.appBar}>
+      <AppBar position="fixed" sx={{
+        ...styles.appBar,
+        backgroundColor: servicesDesktopOpen ? '#0E0E0E' : styles.appBar.backgroundColor,
+        boxShadow: scrolled ? '0 2px 8px rgba(0,0,0,0.3)' : 'none',
+        backdropFilter: scrolled ? 'blur(10px)' : 'none',
+      }}>
         <Container maxWidth={false} sx={styles.container}>
           <Toolbar sx={styles.toolbar}>
             <Box sx={styles.logoBox} onClick={() => handleNavigate('/')}>
@@ -161,6 +193,7 @@ export const Navbar: FC = () => {
                 </Typography>
 
                 <Typography
+                  ref={servicesButtonRef}
                   onClick={() => setServicesDesktopOpen(!servicesDesktopOpen)}
                   data-text={t('Services')}
                   sx={{
@@ -202,7 +235,7 @@ export const Navbar: FC = () => {
       </AppBar>
 
       {!isMobile && servicesDesktopOpen && (
-        <Box sx={styles.servicesSlider}>
+        <Box sx={styles.servicesSlider} ref={sliderRef}>
           {SERVICE_ITEMS.map((section: ServiceSection) => (
             <Box key={section.category}>
               <Typography sx={styles.sliderCategory}>{t(section.category)}</Typography>
