@@ -32,7 +32,6 @@ export const styles: { [key: string]: SxProps } = {
     mx: 'auto',
   },
   highlightText: {
-    color: 'primary.main',
     display: 'inline',
   },
   heroSubtitle: {
@@ -77,7 +76,7 @@ export const styles: { [key: string]: SxProps } = {
   // === SOLUTIONS SECTION ===
   solutionsWrapper: {
     py: { xs: 10, md: 14 },
-    mb: { xs: 6, md: 8 },
+    mb: { xs: 20, md: 30 },
     textAlign: 'center',
   },
 
@@ -91,7 +90,7 @@ export const styles: { [key: string]: SxProps } = {
   solutionsSubtitle: {
     maxWidth: 700,
     mx: 'auto',
-    mb: { xs: 6, md: 8 },
+    mb: { xs: 25, md: 40 },
     fontSize: { xs: '0.95rem', md: '1.05rem' },
     color: '#CFCFCF',
   },
@@ -105,7 +104,7 @@ export const styles: { [key: string]: SxProps } = {
     bgcolor: 'background.white',
     borderRadius: 6,
     p: { xs: 3, md: 4 },
-    mb: { xs: 6, ms: 8 },
+    // Removed the problematic margin-bottom
     width: '100%',
     maxWidth: 420,
     textAlign: 'left',
