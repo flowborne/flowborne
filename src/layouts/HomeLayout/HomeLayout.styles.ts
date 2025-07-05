@@ -232,7 +232,6 @@ export const styles: { [key: string]: SxProps } = {
     lineHeight: 1.6
   },
 
-  // === CTA SECTION ===
   ctaWrapper: {
     py: { xs: 8, md: 12 },
     bgcolor: '#1E1BF9',
