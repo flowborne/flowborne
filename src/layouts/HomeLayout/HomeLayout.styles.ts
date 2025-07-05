@@ -6,8 +6,7 @@ export const styles: { [key: string]: SxProps } = {
     minHeight: '100vh',
     backgroundImage: `url(${backgroundImage})`,
     backgroundSize: 'cover',
-    backgroundPositionX: 'center', 
-    backgroundPositionY: '0px',
+    backgroundPosition: 'center',
     backgroundRepeat: 'no-repeat',
     display: 'flex',
     flexDirection: 'column',
@@ -17,17 +16,20 @@ export const styles: { [key: string]: SxProps } = {
   container: {
     textAlign: 'center',
     maxWidth: 1500,
+    px: { xs: 2, sm: 3, md: 4 },
+    mx: 'auto',
+    width: '100%',
   },
 
   // === HERO SECTION ===
   heroWrapper: {
-    py: { xs: 45, md: 40 },
-    mb: { xs: 6, md: 8},
+    py: { xs: 12, md: 20 },
+    mb: { xs: 6, md: 8 },
   },
   heroTitle: {
     lineHeight: 1.5,
     fontWeight: 'bold',
-    fontSize: { xs: '3rem', md: '4rem' },
+    fontSize: { xs: '2.2rem', sm: '3rem', md: '4rem' },
     maxWidth: 900,
     mx: 'auto',
   },
@@ -37,7 +39,7 @@ export const styles: { [key: string]: SxProps } = {
   heroSubtitle: {
     mt: { xs: 3, md: 5 },
     color: '#CFCFCF',
-    fontSize: { xs: '0.95rem', md: '1rem' },
+    fontSize: { xs: '1rem', md: '1.1rem' },
     maxWidth: 650,
     mx: 'auto',
   },
@@ -45,6 +47,8 @@ export const styles: { [key: string]: SxProps } = {
     mt: { xs: 5, md: 7 },
     justifyContent: 'center',
     alignItems: 'center',
+    flexDirection: { xs: 'column', sm: 'row' },
+    gap: 2,
   },
 
   // === METRICS SECTION ===
@@ -63,11 +67,11 @@ export const styles: { [key: string]: SxProps } = {
   metricValue: {
     fontWeight: 800,
     color: 'secondary.main',
-    fontSize: { xs: '2.8rem', md: '4.2rem' },
+    fontSize: { xs: '2.4rem', sm: '3rem', md: '4.2rem' },
   },
   metricLabel: {
     mt: 1,
-    fontSize: { xs: '0.75rem', md: '0.85rem' },
+    fontSize: { xs: '0.75rem', sm: '0.85rem', md: '0.95rem' },
     fontWeight: 1000,
     textTransform: 'uppercase',
     color: 'text.secondary',
@@ -76,12 +80,12 @@ export const styles: { [key: string]: SxProps } = {
   // === SOLUTIONS SECTION ===
   solutionsWrapper: {
     py: { xs: 10, md: 14 },
-    mb: { xs: 20, md: 30 },
+    mb: { xs: 12, md: 24 },
     textAlign: 'center',
   },
 
   solutionsTitle: {
-    fontSize: { xs: '1.8rem', md: '2.4rem' },
+    fontSize: { xs: '1.6rem', sm: '2rem', md: '2.4rem' },
     fontWeight: 700,
     color: '#FFFFFF',
     mb: 2,
@@ -90,8 +94,8 @@ export const styles: { [key: string]: SxProps } = {
   solutionsSubtitle: {
     maxWidth: 700,
     mx: 'auto',
-    mb: { xs: 25, md: 40 },
-    fontSize: { xs: '0.95rem', md: '1.05rem' },
+    mb: { xs: 10, md: 12 },
+    fontSize: { xs: '1rem', md: '1.05rem' },
     color: '#CFCFCF',
   },
 
@@ -104,7 +108,7 @@ export const styles: { [key: string]: SxProps } = {
     bgcolor: 'background.white',
     borderRadius: 6,
     p: { xs: 3, md: 4 },
-    // Removed the problematic margin-bottom
+    mb: { xs: 10 },
     width: '100%',
     maxWidth: 420,
     textAlign: 'left',
@@ -126,7 +130,7 @@ export const styles: { [key: string]: SxProps } = {
   },
 
   solutionCardTitle: {
-    fontSize: '1.4rem',
+    fontSize: { xs: '1.2rem', md: '1.4rem' },
     fontWeight: 800,
     color: '#000',
   },
@@ -157,40 +161,39 @@ export const styles: { [key: string]: SxProps } = {
   },
 
   // === WHY US SECTION ===
-
   industryLeadersWrapper: {
     py: { xs: 10, md: 14 },
     mb: { xs: 6, md: 8 },
     textAlign: 'center',
   },
-  
+
   industryLeadersTitle: {
-    fontSize: { xs: '1.8rem', md: '2.4rem' },
+    fontSize: { xs: '1.6rem', sm: '2rem', md: '2.4rem' },
     fontWeight: 700,
     color: '#FFFFFF',
     mb: 2,
   },
-  
+
   industryLeadersSubtitle: {
     maxWidth: 600,
     mx: 'auto',
     mb: { xs: 6, md: 8 },
-    fontSize: { xs: '0.95rem', md: '1.05rem' },
+    fontSize: { xs: '1rem', md: '1.05rem' },
     color: '#CFCFCF',
   },
-  
+
   featureGridItem: {
     display: 'flex',
     justifyContent: 'center',
     mb: { xs: 4, md: 0 },
   },
-  
+
   featureCard: {
     textAlign: 'center',
     maxWidth: 300,
     px: { xs: 2, md: 3 },
   },
-  
+
   featureIconBox: {
     width: 80,
     height: 80,
@@ -203,51 +206,53 @@ export const styles: { [key: string]: SxProps } = {
     mx: 'auto',
     mb: 3,
   },
-  
+
   featureIcon: {
     color: '#FADF11',
     fontSize: '2rem',
   },
-  
+
   featureTitle: {
-    fontSize: { xs: '1.1rem', md: '1.2rem' },
+    fontSize: { xs: '1rem', sm: '1.1rem', md: '1.2rem' },
     fontWeight: 600,
     color: '#FFFFFF',
     mb: 2,
   },
-  
+
   featureDescription: {
     fontSize: { xs: '0.9rem', md: '1rem' },
     color: '#CFCFCF',
     lineHeight: 1.6,
   },
-  
+
   // === CTA SECTION ===
   ctaWrapper: {
     py: { xs: 8, md: 12 },
     bgcolor: '#1E1BF9',
     textAlign: 'center',
   },
-  
+
   ctaTitle: {
-    fontSize: { xs: '1.8rem', md: '2.4rem' },
+    fontSize: { xs: '1.6rem', sm: '2rem', md: '2.4rem' },
     fontWeight: 700,
     color: '#FFFFFF',
     mb: 3,
   },
-  
+
   ctaSubtitle: {
     maxWidth: 700,
     mx: 'auto',
     mb: { xs: 5, md: 7 },
-    fontSize: { xs: '0.95rem', md: '1.05rem' },
+    fontSize: { xs: '1rem', md: '1.05rem' },
     color: '#FFFFFF',
     opacity: 0.9,
     lineHeight: 1.6,
   },
-  
+
   ctaButtons: {
     justifyContent: 'center',
     alignItems: 'center',
+    flexDirection: { xs: 'column', sm: 'row' },
+    gap: 2,
   },
 };

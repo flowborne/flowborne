@@ -166,80 +166,124 @@ const HomeLayout = () => {
           <Grid container spacing={0} justifyContent="center">
             {/* DevOps & Cloud Services */}
             <Grid item xs={12} md={6} sx={styles.solutionGridItem}>
-              <TiltedCard
-                imageSrc="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400' viewBox='0 0 400 400'%3E%3Crect width='400' height='400' fill='%23ffffff'/%3E%3C/svg%3E"
-                altText="Solution Card Background"
-                captionText=""
-                containerHeight="auto"
-                containerWidth="60%"
-                imageHeight="10px"
-                imageWidth="100%"
-                rotateAmplitude={0.2}
-                scaleOnHover={1.02}
-                showMobileWarning={false}
-                showTooltip={false}
-                displayOverlayContent={true}
-                overlayContent={
-                  <Box sx={styles.solutionCard}>
-                    <Box sx={styles.solutionIconBox}>
-                      <CloudIcon sx={{ color: 'text.white' }} />
-                    </Box>
-                    <Typography sx={styles.solutionCardTitle}>
-                      {t('solutions.devopsCloud.title')}
-                    </Typography>
-                    <Typography sx={styles.solutionCardDescription}>
-                      {t('solutions.devopsCloud.description')}
-                    </Typography>
-                    <Box component="ul" sx={styles.solutionList}>
-                      {getFeaturesList(DEVOPS_FEATURES).map((text, i) => (
-                        <li key={i}>
-                          <CheckIcon sx={styles.checkIcon} />
-                          {text}
-                        </li>
-                      ))}
-                    </Box>
+              {isMobile ? (
+                <Box sx={styles.solutionCard}>
+                  <Box sx={styles.solutionIconBox}>
+                    <CloudIcon sx={{ color: 'text.white' }} />
                   </Box>
-                }
-              />
+                  <Typography sx={styles.solutionCardTitle}>
+                    {t('solutions.devopsCloud.title')}
+                  </Typography>
+                  <Typography sx={styles.solutionCardDescription}>
+                    {t('solutions.devopsCloud.description')}
+                  </Typography>
+                  <Box component="ul" sx={styles.solutionList}>
+                    {getFeaturesList(DEVOPS_FEATURES).map((text, i) => (
+                      <li key={i}>
+                        <CheckIcon sx={styles.checkIcon} />
+                        {text}
+                      </li>
+                    ))}
+                  </Box>
+                </Box>
+              ) : (
+                <TiltedCard
+                  imageSrc="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400' viewBox='0 0 400 400'%3E%3Crect width='400' height='400' fill='%23ffffff'/%3E%3C/svg%3E"
+                  altText="Solution Card Background"
+                  captionText=""
+                  containerHeight="auto"
+                  containerWidth="60%"
+                  imageHeight="0px"
+                  imageWidth="100%"
+                  rotateAmplitude={0.2}
+                  scaleOnHover={1.02}
+                  showMobileWarning={false}
+                  showTooltip={false}
+                  displayOverlayContent={true}
+                  overlayContent={
+                    <Box sx={styles.solutionCard}>
+                      <Box sx={styles.solutionIconBox}>
+                        <CloudIcon sx={{ color: 'text.white' }} />
+                      </Box>
+                      <Typography sx={styles.solutionCardTitle}>
+                        {t('solutions.devopsCloud.title')}
+                      </Typography>
+                      <Typography sx={styles.solutionCardDescription}>
+                        {t('solutions.devopsCloud.description')}
+                      </Typography>
+                      <Box component="ul" sx={styles.solutionList}>
+                        {getFeaturesList(DEVOPS_FEATURES).map((text, i) => (
+                          <li key={i}>
+                            <CheckIcon sx={styles.checkIcon} />
+                            {text}
+                          </li>
+                        ))}
+                      </Box>
+                    </Box>
+                  }
+                />
+              )}
             </Grid>
 
             {/* Software Development */}
             <Grid item xs={12} md={6} sx={styles.solutionGridItem}>
-              <TiltedCard
-                imageSrc="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400' viewBox='0 0 400 400'%3E%3Crect width='400' height='400' fill='%23ffffff'/%3E%3C/svg%3E"
-                altText="Software Development Card Background"
-                captionText=""
-                containerHeight="auto"
-                containerWidth="60%"
-                imageHeight="10px"
-                imageWidth="100%"
-                rotateAmplitude={0.2}
-                scaleOnHover={1.02}
-                showMobileWarning={false}
-                showTooltip={false}
-                displayOverlayContent={true}
-                overlayContent={
-                  <Box sx={styles.solutionCard}>
-                    <Box sx={styles.solutionIconBox}>
-                      <TerminalIcon sx={{ color: 'text.white' }} />
-                    </Box>
-                    <Typography sx={styles.solutionCardTitle}>
-                      {t('solutions.softwareDev.title')}
-                    </Typography>
-                    <Typography sx={styles.solutionCardDescription}>
-                      {t('solutions.softwareDev.description')}
-                    </Typography>
-                    <Box component="ul" sx={styles.solutionList}>
-                      {getFeaturesList(SOFTWARE_FEATURES).map((text, i) => (
-                        <li key={i}>
-                          <CheckIcon sx={styles.checkIcon} />
-                          {text}
-                        </li>
-                      ))}
-                    </Box>
+              {isMobile ? (
+                <Box sx={styles.solutionCard}>
+                  <Box sx={styles.solutionIconBox}>
+                    <TerminalIcon sx={{ color: 'text.white' }} />
                   </Box>
-                }
-              />
+                  <Typography sx={styles.solutionCardTitle}>
+                    {t('solutions.softwareDev.title')}
+                  </Typography>
+                  <Typography sx={styles.solutionCardDescription}>
+                    {t('solutions.softwareDev.description')}
+                  </Typography>
+                  <Box component="ul" sx={styles.solutionList}>
+                    {getFeaturesList(SOFTWARE_FEATURES).map((text, i) => (
+                      <li key={i}>
+                        <CheckIcon sx={styles.checkIcon} />
+                        {text}
+                      </li>
+                    ))}
+                  </Box>
+                </Box>
+              ) : (
+                <TiltedCard
+                  imageSrc="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400' viewBox='0 0 400 400'%3E%3Crect width='400' height='400' fill='%23ffffff'/%3E%3C/svg%3E"
+                  altText="Software Development Card Background"
+                  captionText=""
+                  containerHeight="auto"
+                  containerWidth="60%"
+                  imageHeight="10px"
+                  imageWidth="100%"
+                  rotateAmplitude={0.2}
+                  scaleOnHover={1.02}
+                  showMobileWarning={false}
+                  showTooltip={false}
+                  displayOverlayContent={true}
+                  overlayContent={
+                    <Box sx={styles.solutionCard}>
+                      <Box sx={styles.solutionIconBox}>
+                        <TerminalIcon sx={{ color: 'text.white' }} />
+                      </Box>
+                      <Typography sx={styles.solutionCardTitle}>
+                        {t('solutions.softwareDev.title')}
+                      </Typography>
+                      <Typography sx={styles.solutionCardDescription}>
+                        {t('solutions.softwareDev.description')}
+                      </Typography>
+                      <Box component="ul" sx={styles.solutionList}>
+                        {getFeaturesList(SOFTWARE_FEATURES).map((text, i) => (
+                          <li key={i}>
+                            <CheckIcon sx={styles.checkIcon} />
+                            {text}
+                          </li>
+                        ))}
+                      </Box>
+                    </Box>
+                  }
+                />
+              )}
             </Grid>
           </Grid>
         </Container>
