@@ -1,4 +1,84 @@
 {
+  "hero": {
+    "title": "Transform Your Business with",
+    "titleHighlight": "Cutting-Edge",
+    "titleEnd": "Tech Solutions",
+    "subtitle": "We accelerate your digital transformation through expert DevOps, cloud migration, and custom software development. Scale faster, deploy smarter, and outpace your competition.",
+    "primaryButton": "Start Your Project",
+    "secondaryButton": "View Our Work"
+  },
+  "metrics": {
+    "projectsDelivered": {
+      "value": "15+",
+      "label": "Projects Delivered"
+    },
+    "clientSatisfaction": {
+      "value": "98%",
+      "label": "Client Satisfaction"
+    },
+    "enterpriseClients": {
+      "value": "5+",
+      "label": "Enterprise Clients"
+    },
+    "supportAvailable": {
+      "value": "10+",
+      "label": "Support Available"
+    }
+  },
+  "solutions": {
+    "title": "Solutions That Drive Results",
+    "subtitle": "From cloud infrastructure to custom applications, we deliver technology solutions that transform how you do business.",
+    "devopsCloud": {
+      "title": "DevOps & Cloud Services",
+      "description": "Streamline your development pipeline and scale your infrastructure with our comprehensive DevOps and cloud solutions.",
+      "features": [
+        "Cloud Migration & Architecture",
+        "CI/CD Pipeline Implementation",
+        "Infrastructure as Code",
+        "24/7 Monitoring & Support",
+        "Cost Optimization"
+      ]
+    },
+    "softwareDev": {
+      "title": "Software Development",
+      "description": "Custom applications built with cutting-edge technologies to solve your unique business challenges and drive growth.",
+      "features": [
+        "Web & Mobile Applications",
+        "MVP Development",
+        "SaaS Solutions",
+        "API Integration",
+        "Legacy System Modernization"
+      ]
+    }
+  },
+  "industryLeaders": {
+    "title": "Why Industry Leaders Choose Us",
+    "subtitle": "We don't just deliver code - we deliver competitive advantages that propel your business forward.",
+    "features": {
+      "lightningFast": {
+        "title": "Lightning-Fast Delivery",
+        "description": "Our proven methodologies and experienced teams ensure rapid deployment without compromising quality or security."
+      },
+      "enterpriseSecurity": {
+        "title": "Enterprise-Grade Security",
+        "description": "Built-in security from day one with compliance standards that meet the most stringent industry requirements."
+      },
+      "scalableArchitecture": {
+        "title": "Scalable Architecture",
+        "description": "Future-proof solutions designed to grow with your business, handling millions of users and transactions effortlessly."
+      },
+      "resultsDriven": {
+        "title": "Results-Driven Approach",
+        "description": "Every solution is measurable, with clear KPIs and ROI metrics that demonstrate real business impact."
+      }
+    }
+  },
+  "cta": {
+    "title": "Ready to Accelerate Your Digital Transformation?",
+    "subtitle": "Join tens of companies who've already transformed their operations with our cutting-edge solutions. Let's discuss how we can drive your next breakthrough.",
+    "primaryButton": "Get Free Consultation",
+    "secondaryButton": "View Case Studies"
+  },
   "nav": {
     "home": "Home",
     "aboutUs": "About Us",
