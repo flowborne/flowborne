@@ -25,7 +25,10 @@ import {
   DEVOPS_FEATURES,
   SOFTWARE_FEATURES
 } from './HomeLayout.constants'
-import { GradientText, SpotlightCard, TiltedCard } from '~components/ui'
+
+import { GradientText } from '~components/GradientText/GradientText'
+import { SpotlightCard } from '~components/SpotlightCard/SpotlightCard'
+import { TiltedCard } from '~components/TiltedCard/TiltedCard'
 
 const iconMap = {
   FlashOn: FlashOnIcon,
@@ -185,10 +188,9 @@ export const HomeLayout = () => {
                 <TiltedCard
                   altText='Solution Card Background'
                   containerHeight='auto'
-                  containerWidth='400px'
+                  containerWidth='60%'
                   displayOverlayContent
-                  imageHeight='0px'
-                  imageSrc="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400' viewBox='0 0 400 400'%3E%3Crect width='400' height='400' fill='%23ffffff'/%3E%3C/svg%3E"
+                  imageHeight='10px'
                   imageWidth='100%'
                   overlayContent={
                     <Box sx={styles.solutionCard}>
@@ -246,7 +248,6 @@ export const HomeLayout = () => {
                   containerWidth='60%'
                   displayOverlayContent
                   imageHeight='10px'
-                  imageSrc="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400' viewBox='0 0 400 400'%3E%3Crect width='400' height='400' fill='%23ffffff'/%3E%3C/svg%3E"
                   imageWidth='100%'
                   overlayContent={
                     <Box sx={styles.solutionCard}>
