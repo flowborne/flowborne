@@ -13,11 +13,14 @@ import {
   List,
   ListItem,
   ListItemText,
-  Collapse
+  Collapse,
+  Menu,
+  MenuItem
 } from '@mui/material'
 import MenuIcon from '@mui/icons-material/Menu'
 import ExpandLess from '@mui/icons-material/ExpandLess'
 import ExpandMore from '@mui/icons-material/ExpandMore'
+import LanguageIcon from '@mui/icons-material/Language'
 import { useNavigate, useLocation } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import { NAV_ITEMS, SERVICE_ITEMS } from './Navbar.constants'
@@ -31,11 +34,12 @@ export const Navbar: FC = () => {
   const [servicesMobileOpen, setServicesMobileOpen] = useState(false)
   const [servicesDesktopOpen, setServicesDesktopOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
+  const [langAnchorEl, setLangAnchorEl] = useState<null | HTMLElement>(null)
   const sliderRef = useRef<HTMLDivElement>(null)
   const servicesButtonRef = useRef<HTMLSpanElement>(null)
   const navigate = useNavigate()
   const location = useLocation()
-  const { t } = useTranslation()
+  const { t, i18n } = useTranslation()
 
   const isActive = (path: string) =>
     location.pathname === path || location.pathname.startsWith(path + '/')
@@ -50,6 +54,17 @@ export const Navbar: FC = () => {
     setDrawerOpen(false)
     setServicesMobileOpen(false)
     setServicesDesktopOpen(false)
+  }
+
+  const handleLangClick = (e: React.MouseEvent<HTMLElement>) => {
+    setLangAnchorEl(e.currentTarget)
+  }
+  const handleLangClose = () => {
+    setLangAnchorEl(null)
+  }
+  const switchLanguage = (lang: string) => {
+    i18n.changeLanguage(lang)
+    handleLangClose()
   }
 
   useEffect(() => {
@@ -69,11 +84,8 @@ export const Navbar: FC = () => {
         setServicesDesktopOpen(false)
       }
     }
-
     document.addEventListener('mousedown', handleClickOutside)
-    return () => {
-      document.removeEventListener('mousedown', handleClickOutside)
-    }
+    return () => document.removeEventListener('mousedown', handleClickOutside)
   }, [servicesDesktopOpen])
 
   return (
@@ -96,6 +108,7 @@ export const Navbar: FC = () => {
       >
         <Container maxWidth={false} sx={styles.container}>
           <Toolbar sx={styles.toolbar}>
+            {/* Logo */}
             <Box onClick={() => handleNavigate('/')} sx={styles.logoBox}>
               <img
                 alt='Logo'
@@ -105,6 +118,7 @@ export const Navbar: FC = () => {
             </Box>
 
             {isMobile ? (
+              // Mobile Drawer */}
               <>
                 <IconButton
                   color='inherit'
@@ -128,12 +142,11 @@ export const Navbar: FC = () => {
                         }}
                       />
                     </ListItem>
-
                     <ListItem
                       onClick={() => setServicesMobileOpen(!servicesMobileOpen)}
                     >
                       <ListItemText
-                        primary={t('Services')}
+                        primary={t('hero.services')}
                         primaryTypographyProps={{
                           sx: {
                             color: isServiceActive() ? '#FADF11' : '#F8F3F3'
@@ -142,7 +155,6 @@ export const Navbar: FC = () => {
                       />
                       {servicesMobileOpen ? <ExpandLess /> : <ExpandMore />}
                     </ListItem>
-
                     <Collapse
                       in={servicesMobileOpen}
                       timeout='auto'
@@ -183,7 +195,6 @@ export const Navbar: FC = () => {
                         ))}
                       </List>
                     </Collapse>
-
                     {NAV_ITEMS.filter((item) => item.path !== '/').map(
                       (item: NavItem) => (
                         <ListItem
@@ -203,7 +214,6 @@ export const Navbar: FC = () => {
                         </ListItem>
                       )
                     )}
-
                     <ListItem sx={{ mt: 2 }}>
                       <Button
                         color='secondary'
@@ -215,10 +225,16 @@ export const Navbar: FC = () => {
                         {t('Get a Quote')}
                       </Button>
                     </ListItem>
+                    <ListItem sx={{ justifyContent: 'center', mt: 1 }}>
+                      <IconButton onClick={handleLangClick} size='small'>
+                        <LanguageIcon sx={{ color: '#F8F3F3' }} />
+                      </IconButton>
+                    </ListItem>
                   </List>
                 </Drawer>
               </>
             ) : (
+              // Desktop links
               <Box sx={styles.navLinksBox}>
                 <Typography
                   data-text={t('nav.home')}
@@ -230,9 +246,8 @@ export const Navbar: FC = () => {
                 >
                   {t('nav.home')}
                 </Typography>
-
                 <Typography
-                  data-text={t('Services')}
+                  data-text={t('hero.services')}
                   onClick={() => setServicesDesktopOpen(!servicesDesktopOpen)}
                   ref={servicesButtonRef}
                   sx={{
@@ -243,9 +258,8 @@ export const Navbar: FC = () => {
                         : '#F8F3F3'
                   }}
                 >
-                  {t('Services')}
+                  {t('hero.services')}
                 </Typography>
-
                 {NAV_ITEMS.filter((item) => item.path !== '/').map(
                   (item: NavItem) => (
                     <Typography
@@ -261,18 +275,43 @@ export const Navbar: FC = () => {
                     </Typography>
                   )
                 )}
-              </Box>
-            )}
+                <Button
+                  color='secondary'
+                  onClick={() => handleNavigate('/contact')}
+                  sx={styles.quoteButton}
+                  variant='contained'
+                >
+                  {t('Get a Quote')}
+                </Button>
 
-            {!isMobile && (
-              <Button
-                color='secondary'
-                onClick={() => handleNavigate('/contact')}
-                sx={styles.quoteButton}
-                variant='contained'
-              >
-                {t('Get a Quote')}
-              </Button>
+                {/* Language switcher */}
+                <IconButton
+                  onClick={handleLangClick}
+                  size='small'
+                  sx={{ ml: 2 }}
+                >
+                  <LanguageIcon sx={{ color: '#F8F3F3' }} />
+                </IconButton>
+                <Menu
+                  anchorEl={langAnchorEl}
+                  keepMounted
+                  onClose={handleLangClose}
+                  open={Boolean(langAnchorEl)}
+                >
+                  <MenuItem
+                    onClick={() => switchLanguage('en')}
+                    selected={i18n.language === 'en'}
+                  >
+                    EN
+                  </MenuItem>
+                  <MenuItem
+                    onClick={() => switchLanguage('uk')}
+                    selected={i18n.language === 'uk'}
+                  >
+                    UA
+                  </MenuItem>
+                </Menu>
+              </Box>
             )}
           </Toolbar>
         </Container>

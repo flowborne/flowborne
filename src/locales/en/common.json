@@ -1,6 +1,7 @@
 {
   "hero": {
     "title": "Transform Your Business with",
+    "services": "Services",
     "titleHighlight": "Cutting-Edge",
     "titleEnd": "Tech Solutions",
     "subtitle": "We accelerate your digital transformation through expert DevOps, cloud migration, and custom software development. Scale faster, deploy smarter, and outpace your competition.",
@@ -104,6 +105,53 @@
     "saasDev": "SaaS Development",
     "saasDevDesc": "Scalable Software-as-a-Service solutions with robust architecture"
   },
-  "Get a Quote": "Get a Quote",
-  "Services": "Services"
+   "footer": {
+    "title": "Flowborne",
+    "description": "Transforming businesses through cutting-edge technology solutions. We accelerate your digital transformation with expert DevOps, cloud services, and custom software development.",
+    "social": {
+      "altDiscord": "Discord"
+    },
+    "sections": {
+      "services": "Services",
+      "company": "Company",
+      "getInTouch": "Get In Touch",
+      "newsletter": "Newsletter"
+    },
+    "services": {
+      "cloudMigration": "Cloud Migration",
+      "devOpsAsAService": "DevOps as a Service",
+      "devOpsConsulting": "DevOps Consulting",
+      "webAppDevelopment": "Web App Development",
+      "mobileAppDevelopment": "Mobile App Development",
+      "mvpDevelopment": "MVP Development",
+      "saasDevelopment": "SaaS Development"
+    },
+    "company": {
+      "aboutUs": "About Us",
+      "caseStudies": "Case Studies",
+      "blog": "Blog",
+      "careers": "Careers",
+      "contact": "Contact",
+      "privacyPolicy": "Privacy Policy",
+      "termsOfService": "Terms of Service"
+    },
+    "contact": {
+      "phone": "+380 (63) 568-97-29",
+      "available24_7": "Available 24/7",
+      "emailPrimary": "sales@flowborne.it.com",
+      "emailSecondary": "support@flowborne.it.com"
+    },
+    "newsletter": {
+      "text": "Stay updated with our latest insights and industry trends.",
+      "placeholder": "Enter your email",
+      "subscribe": "Subscribe"
+    },
+    "bottom": {
+      "copyright": "© 2025 Flowborne. All rights reserved",
+      "privacy": "Privacy",
+      "terms": "Terms",
+      "cookies": "Cookies",
+      "sitemap": "Sitemap"
+    }
+  }
 }

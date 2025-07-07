@@ -112,7 +112,7 @@ export const styles: { [key: string]: SxProps } = {
   },
 
   solutionCard: {
-    bgcolor: 'background.white',
+    bgcolor: 'white',
     borderRadius: 6,
     p: { xs: 3, md: 4 },
     mb: { xs: 10 },

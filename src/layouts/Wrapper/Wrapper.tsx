@@ -3,16 +3,18 @@ import { Box, Container } from '@mui/material'
 import { Outlet } from 'react-router-dom'
 import { styles } from './Wrapper.styles'
 import { Navbar } from '~components/Navbar/Navbar'
+import { Footer } from '~components/Footer/Footer'
 
 export const Wrapper: FC = () => {
   return (
     <Box sx={styles.root}>
       <Navbar />
-      <Box component="main" sx={styles.main}>
+      <Box component='main' sx={styles.main}>
         <Container maxWidth={false} sx={styles.container}>
           <Outlet />
         </Container>
       </Box>
+      <Footer />
     </Box>
   )
 }

@@ -3,12 +3,12 @@ import { createTheme } from '@mui/material/styles'
 export const theme = createTheme({
   breakpoints: {
     values: {
-      xs: 0,  
-      sm: 600,  
-      md: 900,  
-      lg: 1200, 
-      xl: 1536, 
-    },
+      xs: 0,
+      sm: 600,
+      md: 900,
+      lg: 1200,
+      xl: 1536
+    }
   },
 
   components: {
@@ -16,25 +16,25 @@ export const theme = createTheme({
       variants: [
         {
           props: { variant: 'contained', color: 'primary' },
-          style: { 
+          style: {
             backgroundColor: '#FADF11',
             color: '#000000',
             fontWeight: 'bold',
             borderRadius: '17px',
             textTransform: 'none',
-            padding: '12px 32px', // Increased padding for wider buttons
+            padding: '12px 32px',
             fontSize: '18px',
-            minWidth: '160px', // Added minimum width
-            '&:hover': { 
+            minWidth: '160px',
+            '&:hover': {
               backgroundColor: '#e8c900',
-              transform: 'translateY(-1px)', // Reduced movement
-              boxShadow: '0 2px 8px rgba(250, 223, 17, 0.3)' // Reduced shadow
-            },
+              transform: 'translateY(-1px)',
+              boxShadow: '0 2px 8px rgba(250, 223, 17, 0.3)'
+            }
           }
         },
         {
           props: { variant: 'contained', color: 'secondary' },
-          style: { 
+          style: {
             backgroundColor: '#F8F3F3',
             color: '#000',
             fontWeight: 'bold',
@@ -43,12 +43,12 @@ export const theme = createTheme({
             px: 3,
             py: 1,
             padding: '8px 22px',
-            '&:hover': { backgroundColor: '#e0dede' }, 
+            '&:hover': { backgroundColor: '#e0dede' }
           }
         },
         {
           props: { variant: 'outlined', color: 'primary' },
-          style: { 
+          style: {
             borderColor: '#FADF11',
             color: '#FADF11',
             fontWeight: 'bold',
@@ -57,16 +57,15 @@ export const theme = createTheme({
             padding: '12px 32px',
             fontSize: '18px',
             minWidth: '160px',
-            '&:hover': { 
+            '&:hover': {
               borderColor: '#e8c900',
               backgroundColor: 'rgba(250, 223, 17, 0.1)',
               color: '#e8c900',
               transform: 'translateY(-1px)',
-              // Removed transform to prevent content movement
-              boxShadow: '0 2px 8px rgba(250, 223, 17, 0.2)' // Reduced shadow
-            },
+              boxShadow: '0 2px 8px rgba(250, 223, 17, 0.2)'
+            }
           }
-        },
+        }
       ]
     }
   },
@@ -74,26 +73,25 @@ export const theme = createTheme({
     mode: 'light',
     text: {
       primary: '#F8F3F3',
-      secondary: '#000000',
+      secondary: '#000000'
     },
     primary: {
-      main: '#FADF11',   
-      contrastText: '#000000',
+      main: '#FADF11',
+      contrastText: '#000000'
     },
     secondary: {
       main: '#1E1BF9',
-      contrastText: '#000000',
+      contrastText: '#000000'
     },
     background: {
       default: '#0F0F23',
-      paper: 'rgba(248, 243, 243, 0.05)',
-      white: '#F8F3F3',
+      paper: 'rgba(248, 243, 243, 0.05)'
     },
     action: {
-      active: '#FADF11',   
+      active: '#FADF11'
     }
   },
   typography: {
-    fontFamily: 'Roboto, sans-serif',
-  },
+    fontFamily: 'Roboto, sans-serif'
+  }
 })
