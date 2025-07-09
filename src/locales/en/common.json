@@ -1,4 +1,5 @@
 {
+  "GetQuote": "Get a Quote",
   "hero": {
     "title": "Transform Your Business with",
     "services": "Services",
@@ -153,5 +154,76 @@
       "cookies": "Cookies",
       "sitemap": "Sitemap"
     }
+  },
+  "aboutUs":{
+      "hero":{
+        "titleStart":"Pioneering",
+        "titleHighlight":"Digital Innovation",
+        "titleEnd":"Since 2025",
+        "subtitle":"We're not just another tech company. We're your strategic partners in digital transformation, combining cutting-edge technology with deep industry expertise to deliver solutions that drive real business results."
+  },
+  "journey":{
+    "title":"Our Journey of Innovation",
+    "test1":"Founded in 2025 by a team of passionate technologists, Flowborne emerged from a simple yet powerful vision: to bridge the gap between complex technology and business success.",
+    "test2":"What started as a small consulting firm has evolved into a trusted partner for enterprises worldwide. We’ve helped over 150 companies transform their operations, from startups scaling their first products to Fortune 500 companies modernizing legacy systems.",
+    "test3":"Our approach combines deep technical expertise with strategic business thinking, ensuring every solution we deliver doesn’t just work—it drives measurable growth and competitive advantage."
+  },
+  "timeline": {
+    "dates": {
+      "mar2025": "Mar 2025",
+      "may2025": "May 2025",
+      "jun2025": "Jun 2025"
+    },
+    "theBeginning": {
+      "title": "The Beginning",
+      "description": "Founded with a mission to democratize enterprise-grade technology solutions for businesses of all sizes."
+    },
+    "cloudFirst": {
+      "title": "Cloud-First Approach",
+      "description": "Pioneered cloud-native solutions, helping 5+ companies migrate to modern infrastructure and achieve 40% cost savings."
+    },
+    "devops": {
+      "title": "DevOps Excellence",
+      "description": "Established our DevOps practice, reducing deployment times by 90% and improving system reliability for enterprise clients."
+    },
+    "ai": {
+      "title": "AI & Innovation",
+      "description": "Expanded into AI-powered solutions and automation, helping clients achieve unprecedented efficiency gains."
+    },
+    "expansion": {
+      "title": "Global Expansion",
+      "description": "Opened offices in three continents, serving clients across 5 countries with 24/7 support and localized expertise."
+    }
+  },
+    "coreValues": {
+    "title": "Our Core Values",
+    "subtitle": "These principles guide everything we do, from how we build software to how we build relationships with our clients.",
+    "items": {
+      "results": {
+        "title": "Results-Driven",
+        "description": "We measure success by your success. Every project is aligned with clear business objectives and measurable outcomes that matter to your bottom line."
+      },
+      "innovation": {
+        "title": "Innovation First",
+        "description": "We stay ahead of the curve, constantly exploring emerging technologies and methodologies to give our clients a competitive edge."
+      },
+      "partnership": {
+        "title": "Partnership Mindset",
+        "description": "We’re not just vendors—we’re strategic partners invested in your long-term success. Your challenges become our challenges to solve."
+      },
+      "agile": {
+        "title": "Agile Excellence",
+        "description": "Speed without compromise. We deliver high-quality solutions rapidly through proven agile methodologies and continuous improvement."
+      },
+      "security": {
+        "title": "Security & Trust",
+        "description": "Enterprise-grade security is built into everything we do. Your data and intellectual property are protected with the highest standards."
+      },
+      "learning": {
+        "title": "Continuous Learning",
+        "description": "Technology evolves rapidly, and so do we. We invest heavily in our team’s growth and staying current with industry best practices."
+      }
+    }
+  }
   }
 }

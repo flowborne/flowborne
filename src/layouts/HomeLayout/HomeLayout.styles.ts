@@ -1,18 +1,6 @@
 import { SxProps } from '@mui/system'
-import backgroundImage from '../../assets/Home.png'
 
 export const styles: { [key: string]: SxProps } = {
-  layoutWrapper: {
-    minHeight: '100vh',
-    backgroundImage: `url(${backgroundImage})`,
-    backgroundSize: 'cover',
-    backgroundPosition: 'center',
-    backgroundRepeat: 'no-repeat',
-    display: 'flex',
-    flexDirection: 'column',
-    color: 'text.primary'
-  },
-
   container: {
     textAlign: 'center',
     maxWidth: 1500,
