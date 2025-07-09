@@ -8,19 +8,10 @@ const gradientKeyframes = keyframes`
 
 export const styles: { [key: string]: SxProps<Theme> } = {
   animatedGradientText: {
+    display: 'inline',
     position: 'relative',
-    margin: '0 auto',
-    display: 'flex',
-    maxWidth: 'fit-content',
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'center',
-    borderRadius: '1.25rem',
-    fontWeight: 500,
-    backdropFilter: 'blur(10px)',
-    transition: 'box-shadow 0.5s ease-out',
     overflow: 'hidden',
-    cursor: 'pointer'
+    verticalAlign: 'middle'
   },
   gradientOverlay: {
     position: 'absolute',
@@ -48,8 +39,6 @@ export const styles: { [key: string]: SxProps<Theme> } = {
   },
   textContent: {
     display: 'inline-block',
-    position: 'relative',
-    zIndex: 2,
     backgroundSize: '300% 100%',
     backgroundClip: 'text',
     WebkitBackgroundClip: 'text',

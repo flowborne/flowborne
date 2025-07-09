@@ -25,7 +25,6 @@ import { useNavigate, useLocation } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import { NAV_ITEMS, SERVICE_ITEMS } from './Navbar.constants'
 import { styles } from './Navbar.styles'
-import { NavItem, ServiceSection } from '~types/navbar'
 
 export const Navbar: FC = () => {
   const theme = useTheme()
@@ -94,21 +93,13 @@ export const Navbar: FC = () => {
         position='fixed'
         sx={{
           ...styles.appBar,
-          backgroundColor: servicesDesktopOpen
-            ? '#0E0E0E'
-            : typeof styles.appBar === 'object' &&
-                styles.appBar !== null &&
-                'backgroundColor' in styles.appBar
-              ? ((styles.appBar as { backgroundColor?: string })
-                  .backgroundColor ?? '#121212')
-              : '#121212',
+          backgroundColor: servicesDesktopOpen ? '#0E0E0E' : '#121212',
           boxShadow: scrolled ? '0 2px 8px rgba(0,0,0,0.3)' : 'none',
           backdropFilter: scrolled ? 'blur(10px)' : 'none'
         }}
       >
         <Container maxWidth={false} sx={styles.container}>
           <Toolbar sx={styles.toolbar}>
-            {/* Logo */}
             <Box onClick={() => handleNavigate('/')} sx={styles.logoBox}>
               <img
                 alt='Logo'
@@ -118,7 +109,6 @@ export const Navbar: FC = () => {
             </Box>
 
             {isMobile ? (
-              // Mobile Drawer */}
               <>
                 <IconButton
                   color='inherit'
@@ -161,7 +151,7 @@ export const Navbar: FC = () => {
                       unmountOnExit
                     >
                       <List component='div' disablePadding>
-                        {SERVICE_ITEMS.map((section: ServiceSection) => (
+                        {SERVICE_ITEMS.map((section) => (
                           <Box key={section.category}>
                             <ListItemText
                               primary={t(section.category)}
@@ -196,7 +186,7 @@ export const Navbar: FC = () => {
                       </List>
                     </Collapse>
                     {NAV_ITEMS.filter((item) => item.path !== '/').map(
-                      (item: NavItem) => (
+                      (item) => (
                         <ListItem
                           key={item.label}
                           onClick={() => handleNavigate(item.path)}
@@ -222,11 +212,17 @@ export const Navbar: FC = () => {
                         sx={styles.quoteButton}
                         variant='contained'
                       >
-                        {t('Get a Quote')}
+                        {t('GetQuote')}
                       </Button>
                     </ListItem>
                     <ListItem sx={{ justifyContent: 'center', mt: 1 }}>
-                      <IconButton onClick={handleLangClick} size='small'>
+                      <IconButton
+                        onClick={(e) => {
+                          e.stopPropagation()
+                          handleLangClick(e)
+                        }}
+                        size='small'
+                      >
                         <LanguageIcon sx={{ color: '#F8F3F3' }} />
                       </IconButton>
                     </ListItem>
@@ -234,10 +230,8 @@ export const Navbar: FC = () => {
                 </Drawer>
               </>
             ) : (
-              // Desktop links
               <Box sx={styles.navLinksBox}>
                 <Typography
-                  data-text={t('nav.home')}
                   onClick={() => handleNavigate('/')}
                   sx={{
                     ...styles.navLink,
@@ -247,7 +241,6 @@ export const Navbar: FC = () => {
                   {t('nav.home')}
                 </Typography>
                 <Typography
-                  data-text={t('hero.services')}
                   onClick={() => setServicesDesktopOpen(!servicesDesktopOpen)}
                   ref={servicesButtonRef}
                   sx={{
@@ -260,31 +253,18 @@ export const Navbar: FC = () => {
                 >
                   {t('hero.services')}
                 </Typography>
-                {NAV_ITEMS.filter((item) => item.path !== '/').map(
-                  (item: NavItem) => (
-                    <Typography
-                      data-text={t(item.label)}
-                      key={item.label}
-                      onClick={() => handleNavigate(item.path)}
-                      sx={{
-                        ...styles.navLink,
-                        color: isActive(item.path) ? '#FADF11' : '#F8F3F3'
-                      }}
-                    >
-                      {t(item.label)}
-                    </Typography>
-                  )
-                )}
-                <Button
-                  color='secondary'
-                  onClick={() => handleNavigate('/contact')}
-                  sx={styles.quoteButton}
-                  variant='contained'
-                >
-                  {t('Get a Quote')}
-                </Button>
-
-                {/* Language switcher */}
+                {NAV_ITEMS.filter((item) => item.path !== '/').map((item) => (
+                  <Typography
+                    key={item.label}
+                    onClick={() => handleNavigate(item.path)}
+                    sx={{
+                      ...styles.navLink,
+                      color: isActive(item.path) ? '#FADF11' : '#F8F3F3'
+                    }}
+                  >
+                    {t(item.label)}
+                  </Typography>
+                ))}
                 <IconButton
                   onClick={handleLangClick}
                   size='small'
@@ -292,25 +272,14 @@ export const Navbar: FC = () => {
                 >
                   <LanguageIcon sx={{ color: '#F8F3F3' }} />
                 </IconButton>
-                <Menu
-                  anchorEl={langAnchorEl}
-                  keepMounted
-                  onClose={handleLangClose}
-                  open={Boolean(langAnchorEl)}
+                <Button
+                  color='secondary'
+                  onClick={() => handleNavigate('/contact')}
+                  sx={styles.quoteButton}
+                  variant='contained'
                 >
-                  <MenuItem
-                    onClick={() => switchLanguage('en')}
-                    selected={i18n.language === 'en'}
-                  >
-                    EN
-                  </MenuItem>
-                  <MenuItem
-                    onClick={() => switchLanguage('uk')}
-                    selected={i18n.language === 'uk'}
-                  >
-                    UA
-                  </MenuItem>
-                </Menu>
+                  {t('GetQuote')}
+                </Button>
               </Box>
             )}
           </Toolbar>
@@ -319,7 +288,7 @@ export const Navbar: FC = () => {
 
       {!isMobile && servicesDesktopOpen && (
         <Box ref={sliderRef} sx={styles.servicesSlider}>
-          {SERVICE_ITEMS.map((section: ServiceSection) => (
+          {SERVICE_ITEMS.map((section) => (
             <Box key={section.category}>
               <Typography sx={styles.sliderCategory}>
                 {t(section.category)}
@@ -338,6 +307,29 @@ export const Navbar: FC = () => {
           ))}
         </Box>
       )}
+
+      <Menu
+        anchorEl={langAnchorEl}
+        anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}
+        container={document.body}
+        keepMounted
+        onClose={handleLangClose}
+        open={Boolean(langAnchorEl)}
+        transformOrigin={{ vertical: 'top', horizontal: 'right' }}
+      >
+        <MenuItem
+          onClick={() => switchLanguage('en')}
+          selected={i18n.language === 'en'}
+        >
+          EN
+        </MenuItem>
+        <MenuItem
+          onClick={() => switchLanguage('uk')}
+          selected={i18n.language === 'uk'}
+        >
+          UA
+        </MenuItem>
+      </Menu>
     </>
   )
 }

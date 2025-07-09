@@ -1,14 +1,4 @@
-import { useEffect, useState } from 'react'
-import {
-  Box,
-  Button,
-  Grid,
-  Typography,
-  Stack,
-  useTheme,
-  useMediaQuery,
-  Container
-} from '@mui/material'
+import { Grid, Typography, useTheme, useMediaQuery, Box } from '@mui/material'
 import CheckIcon from '@mui/icons-material/Check'
 import CloudIcon from '@mui/icons-material/Cloud'
 import TerminalIcon from '@mui/icons-material/Terminal'
@@ -16,7 +6,6 @@ import FlashOnIcon from '@mui/icons-material/FlashOn'
 import SecurityIcon from '@mui/icons-material/Security'
 import TrendingUpIcon from '@mui/icons-material/TrendingUp'
 import GpsFixedIcon from '@mui/icons-material/GpsFixed'
-import { useNavigate } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import { styles } from './HomeLayout.styles'
 import {
@@ -25,10 +14,10 @@ import {
   DEVOPS_FEATURES,
   SOFTWARE_FEATURES
 } from './HomeLayout.constants'
-
-import { GradientText } from '~components/GradientText/GradientText'
 import { SpotlightCard } from '~components/SpotlightCard/SpotlightCard'
 import { TiltedCard } from '~components/TiltedCard/TiltedCard'
+import { ReadyToAccelerate } from '~components/ReadyToAccelerate/ReadyToAccelerate'
+import { HeroSection } from '~components/HeroSection/HeroSection'
 
 const iconMap = {
   FlashOn: FlashOnIcon,
@@ -40,15 +29,8 @@ const iconMap = {
 export const HomeLayout = () => {
   const theme = useTheme()
   const isMobile = useMediaQuery(theme.breakpoints.down('sm'))
-  const [scrollY, setScrollY] = useState(0)
-  const navigate = useNavigate()
-  const { t } = useTranslation()
 
-  useEffect(() => {
-    const handleScroll = () => setScrollY(window.scrollY)
-    window.addEventListener('scroll', handleScroll)
-    return () => window.removeEventListener('scroll', handleScroll)
-  }, [])
+  const { t } = useTranslation()
 
   const renderIcon = (iconName: string) => {
     const IconComponent = iconMap[iconName as keyof typeof iconMap]
@@ -67,72 +49,20 @@ export const HomeLayout = () => {
     return []
   }
 
-  const handleNavigate = (path: string) => {
-    navigate(path)
-  }
-
   return (
-    <Box
-      sx={{
-        ...styles.layoutWrapper,
-        backgroundPositionY: `${scrollY * 0.5}px`
-      }}
-    >
-      {/* Hero Section */}
-      <Box sx={styles.heroWrapper}>
-        <Container maxWidth={false} sx={styles.container}>
-          <Typography sx={styles.heroTitle} variant={isMobile ? 'h4' : 'h3'}>
-            {t('hero.title')}{' '}
-            <GradientText
-              animationSpeed={15}
-              className='inline-gradient-text'
-              colors={[
-                '#FADF11',
-                '#83758F',
-                '#1E1BF9',
-                '#FADF11',
-                '#83758F',
-                '#1E1BF9'
-              ]}
-              showBorder={false}
-            >
-              {t('hero.titleHighlight')}
-            </GradientText>{' '}
-            {t('hero.titleEnd')}
-          </Typography>
-          <Typography sx={styles.heroSubtitle} variant='body1'>
-            {t('hero.subtitle')}
-          </Typography>
-          <Stack
-            direction={{ xs: 'column', sm: 'row' }}
-            spacing={5}
-            sx={styles.heroButtons}
-          >
-            <Button
-              color='primary'
-              fullWidth={isMobile}
-              onClick={() => handleNavigate('/contact')}
-              sx={{ minWidth: { xs: 'auto', sm: 300 } }}
-              variant='contained'
-            >
-              {t('hero.primaryButton')}
-            </Button>
-            <Button
-              color='primary'
-              fullWidth={isMobile}
-              onClick={() => handleNavigate('/case-studies')}
-              sx={{ minWidth: { xs: 'auto', sm: 300 } }}
-              variant='outlined'
-            >
-              {t('hero.secondaryButton')}
-            </Button>
-          </Stack>
-        </Container>
-      </Box>
+    <Box>
+      <HeroSection
+        primaryButtonText={t('hero.primaryButton')}
+        secondaryButtonText={t('hero.secondaryButton')}
+        showButtons
+        subtitle={t('hero.subtitle')}
+        titleEnd={t('hero.titleEnd')}
+        titleHighlight={t('hero.titleHighlight')}
+        titleStart={t('hero.title')}
+      />
 
-      {/* Metrics Section */}
       <Box sx={styles.metricsWrapper}>
-        <Container maxWidth={false} sx={styles.container}>
+        <Box sx={styles.container}>
           <Grid container justifyContent='center' spacing={10}>
             {METRICS.map((metric, i) => (
               <Grid item key={i} sm={3} xs={6}>
@@ -150,12 +80,11 @@ export const HomeLayout = () => {
               </Grid>
             ))}
           </Grid>
-        </Container>
+        </Box>
       </Box>
 
-      {/* Solutions Section */}
       <Box sx={styles.solutionsWrapper}>
-        <Container maxWidth={false} sx={styles.container}>
+        <Box sx={styles.container}>
           <Typography sx={styles.solutionsTitle}>
             {t('solutions.title')}
           </Typography>
@@ -163,7 +92,6 @@ export const HomeLayout = () => {
             {t('solutions.subtitle')}
           </Typography>
           <Grid container justifyContent='center' spacing={0}>
-            {/* DevOps & Cloud Services */}
             <Grid item md={6} sx={styles.solutionGridItem} xs={12}>
               {isMobile ? (
                 <Box sx={styles.solutionCard}>
@@ -219,8 +147,6 @@ export const HomeLayout = () => {
                 />
               )}
             </Grid>
-
-            {/* Software Development */}
             <Grid item md={6} sx={styles.solutionGridItem} xs={12}>
               {isMobile ? (
                 <Box sx={styles.solutionCard}>
@@ -277,12 +203,11 @@ export const HomeLayout = () => {
               )}
             </Grid>
           </Grid>
-        </Container>
+        </Box>
       </Box>
 
-      {/* Why Industry Leaders Choose Us Section */}
       <Box sx={styles.industryLeadersWrapper}>
-        <Container maxWidth={false} sx={styles.container}>
+        <Box sx={styles.container}>
           <Typography sx={styles.industryLeadersTitle}>
             {t('industryLeaders.title')}
           </Typography>
@@ -313,40 +238,9 @@ export const HomeLayout = () => {
               </Grid>
             ))}
           </Grid>
-        </Container>
+        </Box>
       </Box>
-
-      {/* Ready to Accelerate CTA Section */}
-      <Box sx={styles.ctaWrapper}>
-        <Container maxWidth={false} sx={styles.container}>
-          <Typography sx={styles.ctaTitle}>{t('cta.title')}</Typography>
-          <Typography sx={styles.ctaSubtitle}>{t('cta.subtitle')}</Typography>
-          <Stack
-            direction={{ xs: 'column', sm: 'row' }}
-            spacing={3}
-            sx={styles.ctaButtons}
-          >
-            <Button
-              color='primary'
-              fullWidth={isMobile}
-              onClick={() => handleNavigate('/contact')}
-              sx={{ minWidth: { xs: 'auto', sm: 300 } }}
-              variant='contained'
-            >
-              {t('cta.primaryButton')}
-            </Button>
-            <Button
-              color='primary'
-              fullWidth={isMobile}
-              onClick={() => handleNavigate('/case-studies')}
-              sx={{ minWidth: { xs: 'auto', sm: 300 } }}
-              variant='outlined'
-            >
-              {t('cta.secondaryButton')}
-            </Button>
-          </Stack>
-        </Container>
-      </Box>
+      <ReadyToAccelerate isBlue />
     </Box>
   )
 }
